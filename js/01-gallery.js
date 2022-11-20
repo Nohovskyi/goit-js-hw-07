@@ -37,10 +37,10 @@ function onLinkContainerClick(event) {
   openModal(event);
 
     
-    // if (basicLightbox.__esModule) {
+    // if (basicLightbox.onshown) {
     //     document.addEventListener("keydown", event => {
     //         if (event.code === "Escape") {
-    //          return basicLightbox.__esModule;
+    //          return basicLightbox.close();
     //         }
     //     });
     // };
@@ -55,3 +55,26 @@ function openModal(event) {
     )
     .show();
 }
+
+// document.querySelector(".gallery").onclick = (e) => {
+//   const html = `
+// 		<h1>Callbacks</h1>
+// 		<p>Take a look at the console of your browser.<br>This lightbox will close automaticly to demonstrate the close-callback.</p>
+// 	`;
+
+//   const instance = basicLightbox.create(
+//     `
+// 		<img width="1400" height="900" src="${event.target.dataset.source}">
+// 	`,
+//     {
+//       onShow: (instance) => console.log("onShow", instance),
+//       onClose: (instance) => console.log("onClose", instance),
+//     }
+//   );
+
+//   instance.show((instance) => console.log("finished show()", instance));
+
+//   setTimeout(() => {
+//     instance.close((instance) => console.log("finished close()", instance));
+//   }, 3000);
+// };
