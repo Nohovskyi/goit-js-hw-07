@@ -34,7 +34,7 @@ function onLinkContainerClick(event) {
   }
 
   console.log(event.target.dataset.source);
-  openModal(event);
+  // openModal(event);
 
     
     // if (basicLightbox.onshown) {
@@ -46,35 +46,29 @@ function onLinkContainerClick(event) {
     // };
 }
 
-function openModal(event) {
-  basicLightbox
-    .create(
-      `
-		<img width="1400" height="900" src="${event.target.dataset.source}">
-	`
-    )
-    .show();
-}
-
-// document.querySelector(".gallery").onclick = (e) => {
-//   const html = `
-// 		<h1>Callbacks</h1>
-// 		<p>Take a look at the console of your browser.<br>This lightbox will close automaticly to demonstrate the close-callback.</p>
-// 	`;
-
-//   const instance = basicLightbox.create(
-//     `
+// function openModal(event) {
+//   basicLightbox
+//     .create(
+//       `
 // 		<img width="1400" height="900" src="${event.target.dataset.source}">
-// 	`,
-//     {
-//       onShow: (instance) => console.log("onShow", instance),
-//       onClose: (instance) => console.log("onClose", instance),
-//     }
-//   );
+// 	`
+//     )
+//     .show();
+// }
 
-//   instance.show((instance) => console.log("finished show()", instance));
+document.querySelector(".gallery").onclick = (event) => {
+  const img = `
+		<img width="1400" height="900" src="${event.target.dataset.source}">
+	`;
 
-//   setTimeout(() => {
-//     instance.close((instance) => console.log("finished close()", instance));
-//   }, 3000);
-// };
+  const instance = basicLightbox.create(img, {
+    onShow: (instance) => console.log("onShow", instance),
+    onClose: (instance) => console.log("onClose", instance),
+  });
+
+  instance.show((instance) => console.log("finished show()", instance));
+
+  setTimeout(() => {
+    instance.close((instance) => console.log("finished close()", instance));
+  }, 3000);
+};
